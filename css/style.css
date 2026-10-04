@@ -1,0 +1,308 @@
+/* Declared dimensions include padding and borders. */
+* {
+    box-sizing: border-box;
+}
+
+/* Base text and page colors. */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #263238;
+    background-color: #edf2f4;
+}
+
+h1 {
+    color: navy;
+    font-size: 32px;
+}
+
+h2 {
+    color: #263238;
+    font-size: 24px;
+}
+
+h1, h2, .site-name, .rating {
+    font-weight: bold;
+}
+
+.movie-card h2 {
+    color: navy;
+    font-size: 18px;
+    margin: 16px 16px 8px;
+}
+
+/* The logo and its text form one item in the header. */
+.site-name {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+/* Keep the outer background as wide as the page. */
+header {
+    padding: 20px 0;
+    color: white;
+    background-color: #2b2d42;
+}
+
+/* The inner header and main share a width limit and side padding. */
+.header-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+header a {
+    color: white;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #414563;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #e0e6e9;
+}
+
+footer p {
+    margin: 0;
+}
+
+.movie-card {
+    transition: box-shadow 0.2s;
+    width: 240px;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    border: 1px solid #b8c2cc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.movie-card img {
+    display: block;
+    width: 100%;
+    /* Fill a shared frame proportionally, cropping what does not fit. */
+    height: 360px;
+    object-fit: cover;
+}
+
+.movie-card p {
+    margin: 0 16px 16px;
+}
+
+.movie-card section {
+    padding: 0 16px 16px;
+}
+
+.movie-card h3 {
+    margin: 0 0 8px;
+}
+
+.movie-card section p {
+    margin: 0;
+}
+
+/* Filled and empty shapes convey the same four-out-of-five rating. */
+.rating-stars {
+    color: #b91231;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+/* Arrange direct movie children, allowing a new row when needed. */
+.movie-list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+/* Poster and title form one link; the rating remains separate information. */
+.movie-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.movie-card-link:hover h2 {
+    text-decoration: underline;
+}
+
+/* Only the poster and information group form the two columns. */
+.movie-details {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+/* Keep the full poster proportional while protecting its width. */
+.details-poster {
+    display: block;
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* The text column can use the remaining space, including a narrow remainder. */
+.movie-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.movie-info h1 {
+    margin-top: 0;
+}
+
+/* Mouse feedback reuses the card shadow. */
+.movie-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #2b2d42;
+    text-decoration: underline;
+}
+
+/* Keyboard focus must be visible on both light and dark backgrounds. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #b91231;
+    outline-offset: 4px;
+}
+
+header a:focus-visible {
+    outline-color: #ffdc73;
+}
+
+/* Keep the contour inside the link, where the card cannot clip it. */
+.movie-card-link:focus-visible {
+    outline-offset: -4px;
+}
+
+/* The form groups the controls that share one submission. */
+.review-form {
+    max-width: 640px;
+    padding: 24px;
+    border: 1px solid #b8c2cc;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.form-field {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #83919e;
+    border-radius: 4px;
+    font: inherit;
+}
+
+textarea {
+    /* Keep resizing from widening the page. */
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-field {
+    min-width: 0;
+    flex: 1;
+}
+
+.form-note {
+    padding: 12px;
+    border-left: 4px solid #0969b5;
+    background-color: #e8f1f8;
+}
+
+/* The button sends an example; it does not save a review. */
+button {
+    transition: background-color 0.2s;
+    padding: 12px 20px;
+    border: 1px solid #2b2d42;
+    border-radius: 4px;
+    font: inherit;
+    color: white;
+    background-color: #2b2d42;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #414563;
+}
+
+/* Switch when the two-column content no longer has enough room. */
+@media (max-width: 680px) {
+    .movie-details,
+    .form-row {
+        flex-direction: column;
+    }
+
+    .details-poster {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .form-row {
+        gap: 0;
+    }
+
+    .form-row .form-field {
+        width: 100%;
+    }
+}
+
+/* Keep the feedback, but remove its transition when requested. */
+@media (prefers-reduced-motion: reduce) {
+    .movie-card,
+    button {
+        transition: none;
+    }
+}
